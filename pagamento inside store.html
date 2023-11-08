@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - Inside Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: purple;
+            color: yellow;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: yellow;
+            color: purple;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: purple;
+            color: yellow;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Opções de Pagamento</h1>
+    <p>Escolha uma das opções de pagamento abaixo:</p>
+    <button onclick="pagarComPix()">Pagar com PIX</button>
+    <button onclick="pagarComCartao()">Pagar com Cartão de Crédito</button>
+
+    <div id="pixQrCode" style="display: none;">
+        <img src="QRCode_Fácil.png" alt="QR Code PIX" style="width: 200px; height: 200px;">
+    </div>
+
+    <div id="cartaoForm" style="display: none;">
+        <form>
+            <input type="text" placeholder="Número do Cartão">
+            <input type="text" placeholder="Nome do Titular">
+            <input type="text" placeholder="Data de Validade">
+            <input type="text" placeholder="Código de Segurança">
+            <input type="submit" value="Pagar">
+        </form>
+    </div>
+
+    <script>
+        function pagarComPix() {
+            document.getElementById('pixQrCode').style.display = 'block';
+            document.getElementById('cartaoForm').style.display = 'none';
+        }
+
+        function pagarComCartao() {
+            document.getElementById('pixQrCode').style.display = 'none';
+            document.getElementById('cartaoForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

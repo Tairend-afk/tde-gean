@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inside Store</title>
+    <link rel="stylesheet" href="tde gean.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="1DC446DB-FD77-40F0-AEC5-1470ADDE5C18_1.png" alt="Inside Store" >
+        </div>
+        <div class="contact">
+            <p>Telefone: (75) 94002-8922</p>
+            <p>Email: <a href="mailto:jacintoleite@insidestore.com">@inside_store</a></p>
+        </div>
+        
+      
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#homem">Homem</a></li>
+            <li><a href="#mulher">Mulher</a></li>
+            <li><a href="#inside store">Inside Store</a></li>
+        </ul>
+    </nav>
+
+    <section id="comunicacao">
+        <a href="https://www.youtube.com/watch?v=coaN2VBNgYA" class="tab-link" target="_blank"><img src="face.png" alt="Logo 1" height="50" width="50"></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="tab-link" target="_blank"><img src="purple+insta.png" alt="Logo 2" height="50" width="50"></a>
+        <a href="https://www.youtube.com/watch?v=KjKGR8oKJwc&t=6s" class="tab-link" target="_blank"><img src="zapzap.png" alt="Logo 3" height="50" width="50"></a>
+    </section>
+
+    <section id="homem">
+        <h2>Roupas Masculinas</h2>
+        <div class="clothing">
+            <div class="item">
+                <img class="zoom" src="3 shorts.png" alt="Roupa 1"height="250" width="300">
+                <p class="roupas">KIT 3 shorts dry-fit</p>
+                <p class="price" data-price="175">Preço: R$ 175,00</p>
+                <button class="comprar">COMPRAR</button>
+            </div>
+            <div class="item">
+                <img class="zoom" src="camisa dry fit.png" alt="Roupa 2"height="250" width="300">
+                <p class="roupas">Camisa dry-fit</p>
+                <p class="price" data-price="95.00">Preço: R$ 95,00</p>
+                <button class="comprar">COMPRAR</button>
+            </div>
+            <div class="item">
+                <img class="zoom" src="conjunto masculino.png" alt="Roupa 3"height="250" width="300">
+                <p class="roupas">Conjunto insider (M)</p>
+                <p class="price" data-price="185.00">Preço: R$ 185,00</p>
+                <button class="comprar">COMPRAR</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="mulher">
+        <h2>Roupas Femininas</h2>
+        <div class="clothing">
+            <div class="item">
+                <img class="zoom" class="zoom" src="conjunto feminino verde e rosa.png" alt="Roupa 4" height="250" width="300">
+                <p class="roupas">Duplo conjunto (F)</p>
+                <p class="price" data-price="220.00">Preço: R$ 220,00</p>
+                <button class="comprar">COMPRAR</button>
+            </div>
+            <div class="item">
+                <img class="zoom" src="camisa dryfit feminina.png" alt="Roupa 5" height="250" width="300">
+                <p class="roupas">Camisa Dry-fit</p>
+                <p class="price" data-price="90.00">Preço: R$ 90,00</p>
+                <button class="comprar">COMPRAR</button>
+            </div>
+            <div class="item">
+                <img class="zoom" src="conjunto feminino.png" alt="Roupa 6" height="250" width="300">
+                <p class="roupas">Conjunto insider (F)</p>
+                <p class="price" data-price="125.00">Preço: R$ 125,00</p>
+                <button class="comprar">COMPRAR</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="inside store">
+        <h2>Inside Store</h2>
+        <p>Bem-vindo à Inside Store, o seu destino definitivo para moda esportiva que combina estilo e desempenho. Entre no mundo da excelência esportiva, onde cada peça de roupa é cuidadosamente selecionada para atender às suas necessidades ativas e fashion. Na Inside Store, acreditamos que você pode ser impecável enquanto quebra limites e alcança seus objetivos fitness.</p>
+    </section>
+
+    <section id="cart">
+        <h2>Carrinho de Compras</h2>
+        <ul id="cart-items">
+            <!-- Itens do carrinho aparecerão aqui -->
+        </ul>
+        <p id="cart-total">Total do Carrinho: R$ 0.00</p>
+        <button onclick="finalizarCompra()">Finalizar Compra</button>
+    </section>
+
+    <section id="payment-options" style="display: none;">
+        <h2>Formas de Pagamento</h2>
+        <button onclick="pagarComPix()">Pagar com PIX</button>
+        <button onclick="pagarComCartao()">Pagar com Cartão de Crédito</button>
+    </section>
+
+    <footer>
+        <div class="subscribe">
+            <h2>Venha ser Inside Store!</h2>
+            <p>Receba ofertas e novidades da Inside Store.</p>
+            <form id="myForm">
+                <input type="text" placeholder="Seu nome">
+                <input type="email" placeholder="Seu email">
+                <button type="submit">Inscrever</button>
+            </form>
+        </div>
+    </footer>
+    
+    <script>
+        const form = document.getElementById('myForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que a página seja recarregada após o envio do formulário
+            myFunction();
+        });
+
+        function myFunction() {
+            if (confirm("Deseja se inscrever?")) {
+                // Aqui você pode adicionar código para processar o envio do formulário
+                alert("E-mail cadastrado com sucesso!");
+            } else {
+                // Código para lidar com o cancelamento do envio do formulário
+                alert("Inscrição cancelada com sucesso!");
+            }
+        }
+
+        let cartTotal = 0;
+        const cartItems = [];
+
+        const comprarButtons = document.querySelectorAll('.comprar');
+
+        comprarButtons.forEach((button, index) => {
+            button.addEventListener('click', (event) => {
+                const priceText = event.target.previousElementSibling.dataset.price;
+                const price = parseFloat(priceText);
+
+                if (!isNaN(price)) {
+                    cartTotal += price;
+                    const productName = event.target.parentElement.querySelector('.roupas').textContent;
+                    cartItems.push({ id: index, name: productName, price: price });
+                    updateCart();
+                    alert(`Produto "${productName}" adicionado ao carrinho. Total do Carrinho: R$ ${cartTotal.toFixed(2)}`);
+                } else {
+                    alert('Preço inválido. Por favor, verifique o preço do produto.');
+                }
+            });
+        });
+
+        function updateCart() {
+            const cartList = document.getElementById('cart-items');
+            cartList.innerHTML = '';
+
+            cartItems.forEach((item) => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
+                cartList.appendChild(li);
+            });
+
+            const cartTotalElement = document.getElementById('cart-total');
+            cartTotalElement.textContent = `Total do Carrinho: R$ ${cartTotal.toFixed(2)}`;
+        }
+
+        function finalizarCompra() {
+            if (cartTotal > 0) {
+                const confirmar = confirm(`Deseja finalizar a compra? Total a pagar: R$ ${cartTotal.toFixed(2)}`);
+                if (confirmar) {
+                    // Redirecionar para a página de pagamento
+                    window.location.href = 'pagamento inside store.html';
+                } else {
+                    alert('Compra cancelada. Seu carrinho ainda possui itens.');
+                }
+            } else {
+                alert('Seu carrinho está vazio. Adicione itens antes de finalizar a compra.');
+            }
+        }
+    </script>
+</body>
+</html>
